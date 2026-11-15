@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página de demonstração com uma notícia e um player de vídeo para testar anúncios MyBid.">
+  <title>Notícia de demonstração | MyBid Video Test</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --text: #edf2ff;
+      --muted: #aab5cc;
+      --accent: #8b75f5;
+      --line: rgba(255,255,255,.10);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+    header {
+      padding: 18px 5%;
+      border-bottom: 1px solid var(--line);
+      background: #090e1b;
+    }
+    .brand { font-size: 1.25rem; font-weight: 800; letter-spacing: .08em; }
+    .brand span { color: var(--accent); }
+    main { width: min(900px, 92%); margin: 34px auto 60px; }
+    .tag {
+      display: inline-block;
+      color: #c7bcff;
+      background: rgba(139,117,245,.14);
+      padding: 5px 11px;
+      border-radius: 30px;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 1.15; margin: 14px 0; }
+    .meta { color: var(--muted); font-size: .9rem; margin-bottom: 22px; }
+    .lead { color: #d5def2; font-size: 1.1rem; }
+    .video-card {
+      margin: 26px 0;
+      padding: 14px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+    .video-label { margin: 0 0 10px; font-size: .9rem; color: var(--muted); }
+    /* Este é o elemento-alvo para o Overlay da MyBid. */
+    #video-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: block;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #video-player video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+    .hint {
+      margin: 10px 2px 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    article p { color: #d4dced; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 22px 5%;
+      color: var(--muted);
+      text-align: center;
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">MY<span>NEWS</span></div>
+  </header>
+
+  <main>
+    <article>
+      <span class="tag">TECNOLOGIA · NOTÍCIA DE TESTE</span>
+      <h1>Como os vídeos estão a transformar a forma de acompanhar notícias online</h1>
+      <div class="meta">Notícia demonstrativa · Página criada para testar o formato de anúncio em vídeo</div>
+
+      <p class="lead">
+        Os conteúdos em vídeo tornaram-se uma forma importante de apresentar informação
+        na internet. Nesta página de demonstração, o leitor encontra uma notícia e um
+        player HTML5 que pode servir de área de teste para o formato de anúncio da MyBid.
+      </p>
+
+      <section class="video-card" aria-label="Player de vídeo">
+        <p class="video-label">Vídeo da notícia</p>
+
+        <!--
+          A MyBid pode usar este elemento como alvo do Overlay.
+          No campo CSS selector do painel MyBid, introduza: #video-player
+        -->
+        <div id="video-player">
+          <video controls playsinline preload="metadata"
+                 poster="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1280&q=80">
+            <!-- Substitua o endereço abaixo pelo URL de um vídeo seu/autorizado. -->
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            O seu navegador não suporta a reprodução de vídeo.
+          </video>
+        </div>
+
+        <p class="hint">
+          Vídeo de demonstração. Substitua-o pelo vídeo que pretende apresentar.
+          O anúncio MyBid é configurado separadamente no painel da rede.
+        </p>
+      </section>
+
+      <p>
+        Um player integrado permite que o visitante reproduza o conteúdo diretamente
+        na página. Para testar o Overlay da MyBid, o anúncio deve ser associado ao
+        elemento do player através do seletor CSS correspondente.
+      </p>
+      <p>
+        Esta página contém apenas uma notícia, de propósito, para facilitar a verificação
+        do comportamento do anúncio, da reprodução do vídeo e da compatibilidade em
+        dispositivos móveis.
+      </p>
+    </article>
+  </main>
+
+  <footer> Página de demonstração para testes de integração MyBid · 2026 </footer>
+
+  <script async src="https://js.mbidadm.com/static/scripts.js" data-admpid="472628"></script>
+
+  <!--
+    IMPORTANTE:
+    Cole aqui o código/script de publisher fornecido pela MyBid, caso o painel
+    disponibilize um script de integração para este formato.
+
+    A imagem enviada mostra a configuração de Overlay e exige um CSS selector.
+    Ela não contém o código de integração nem um URL VAST/MP4 do anúncio.
+    Não invente nem substitua o script oficial da MyBid.
+  -->
+</body>
+</html>
